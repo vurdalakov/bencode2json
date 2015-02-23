@@ -7,8 +7,10 @@ Written in pure C#, does not use any 3-rd party libraries like JSON.NET.
 ##### Syntax
 
 ```
-bencode2json file1 file2 [-silent]
+bencode2json bencode_file [json_file] [-silent]
 ```
+
+If JSON file name is not specified, tool creates JSON file in the same directory and with the same name as bencode file, but with `.json` extension.
 
 `-silent` option tells tool not to print anything to stdout; check exit code for result.
 

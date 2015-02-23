@@ -35,18 +35,11 @@
 
             StringBuilder stringBuilder = new StringBuilder();
 
-            try
+            while (!_binaryReader.IsEof())
             {
-                while (!_binaryReader.IsEof())
-                {
-                    var b = _binaryReader.ReadByte();
+                var b = _binaryReader.ReadByte();
 
-                    stringBuilder.Append(ReadItem(b));
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                stringBuilder.Append(ReadItem(b));
             }
 
             var s = stringBuilder.ToString();
@@ -240,7 +233,7 @@
             {
                 if (bytes[i] != newBytes[i])
                 {
-                    throw new Exception("Byte arraya are not same");
+                    throw new Exception("Byte arrays are not same");
                 }
             }
         }
