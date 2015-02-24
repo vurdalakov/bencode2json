@@ -2,7 +2,9 @@
 
 `bencode2json` command-line tool converts a [bencode](http://en.wikipedia.org/wiki/Bencode) file to a [JSON](http://en.wikipedia.org/wiki/JSON) file.
 
-Written in pure C#, does not use any 3-rd party libraries like JSON.NET.
+Written in pure C# and does NOT use any external libraries like JSON.NET.
+
+This tool is part of [`dostools` collection](https://github.com/vurdalakov/dostools).
 
 ##### Syntax
 
