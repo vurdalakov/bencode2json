@@ -30,7 +30,7 @@
             catch (Exception ex)
             {
                 Print("Error converting file: {0}", ex.Message);
-                throw;
+                return 1;
             }
         }
 
