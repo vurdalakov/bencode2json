@@ -3,31 +3,17 @@
     using System;
     using System.IO;
 
-    public class Application
+    public class Application : DosToolsApplication
     {
-        private CommandLineParser _commandLineParser;
-        private Boolean _silent;
-
-        public Application(String[] args)
+        public Application(String[] args) : base(args)
         {
-            try
-            {
-                _commandLineParser = new CommandLineParser(args);
-
-                if (_commandLineParser.FileNames.Length < 1)
-                {
-                    throw new Exception();
-                }
-
-                _silent = _commandLineParser.IsOptionSet("silent");
-            }
-            catch
+            if (_commandLineParser.FileNames.Length < 1)
             {
                 Help();
             }
         }
 
-        public void Run()
+        protected override Int32 Execute()
         {
             try
             {
@@ -38,23 +24,17 @@
 
                 var converter = new BencodeToJsonConverter();
                 converter.Convert(fileName1, fileName2);
+
+                return 0;
             }
             catch (Exception ex)
             {
                 Print("Error converting file: {0}", ex.Message);
-                Environment.Exit(1);
+                throw;
             }
         }
 
-        private void Print(String format, params Object[] args)
-        {
-            if (!_silent)
-            {
-                Console.WriteLine(String.Format(format, args));
-            }
-        }
-
-        private void Help()
+        protected override void Help()
         {
             Console.WriteLine("Bencode to JSON converter 1.0 | (c) Vurdalakov | https://github.com/vurdalakov/bencode2json\n");
             Console.WriteLine("Converts a bencode file to a JSON file\n");

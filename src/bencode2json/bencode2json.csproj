@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vurdalakov\BinaryReaderExtensions.cs" />
     <Compile Include="Vurdalakov\CommandLineParser.cs" />
+    <Compile Include="Vurdalakov\DosToolsApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
